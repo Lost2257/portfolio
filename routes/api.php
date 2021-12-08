@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('submit', 'RatingController@submit');
+Route::get('count', 'RatingController@count');

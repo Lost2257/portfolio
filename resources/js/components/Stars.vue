@@ -23,6 +23,9 @@
                 </form>
             </div>
             <button class="mygtukas" type="submit">Pateikti 😁</button>
+             <div v-if="success">
+                 <h1 class="text-white">Aciū!</h1>
+            </div>
         </form>
     </div>
 </template>
@@ -35,7 +38,9 @@ export default{
             fields: {},
             errors: {},
             success: false,
-            loaded:true
+            loaded:true,
+            allData: '',
+            percentage: ''
         }
     },
     methods: {
@@ -57,5 +62,9 @@ export default{
             }
         },
     },
+      mounted() {
+    axios.get('/api/count')
+    .then(response => this.allData = response.data)
+  },
 }
 </script>
